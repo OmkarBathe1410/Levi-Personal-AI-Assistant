@@ -1,7 +1,6 @@
 # Importing required libraries and classes:
 import sys
 import os.path
-from subprocess import call
 from PyQt5.QtWidgets import QWidget, QMainWindow
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtCore import pyqtSlot,QTimer
@@ -32,7 +31,7 @@ class faceRecog(QMainWindow):
         self.name = None
     
         self.faceUI.exitButton.clicked.connect(self.close)
-        # self.faceUI.loginButton.clicked.connect(self.connectToLogin)
+        self.faceUI.loginButton.clicked.connect(self.connectToLogin)
         
         #for camera input:
         self.startVideo()                                                                               
@@ -92,7 +91,6 @@ class faceRecog(QMainWindow):
                 qformat = QImage.Format_RGBA8888
             else:    
                 qformat = QImage.Format_RGB888
-                
         #Data ,width, height, bytesPerLine, format:
         outImage = QImage(image, image.shape[1], image.shape[0], image.strides[0], qformat)     
         outImage = outImage.rgbSwapped()
@@ -118,27 +116,26 @@ class faceRecog(QMainWindow):
             bestMatchIndex = numpy.argmin(face_dis)         
 
             if match[bestMatchIndex]:
-                
                 #className[bestMatchIndex] = className[2] it will get name of 2nd image in folder:
                 self.name = className[bestMatchIndex]         
                 self.name = nameList(self.name)
-                y1,x2,y2,x1 = faceLoc
-                
+                y1,x2,y2,x1 = faceLoc      
                 #image , point1, point2, color, thickness of rectangle:
                 cv2.rectangle(image,(x1,y1),(x2,y2),(0,255,0),2)        
-                
                 #image, text, point, fontface, fontsize, color, thickness:
                 cv2.putText(image,self.name, (x1-6 , y2+20),cv2.FONT_HERSHEY_COMPLEX, 0.5, (255,255,255),1)    
         return image        
 
     # Method for redirecting/connecting to the MAIN module of our system:
     def connectToLeviMain(self):
+        from subprocess import call
         self.capture.release()     
         self.close()
-        call(["python", "main.py"])
+        call(["python", "leviMain.py"])
 
     # Method for redirecting/connecting to the Login module of our system:
     def connectToLogin(self):
+        from subprocess import call
         self.capture.release()     
         self.close()
         call(["python", "loginWindowMain.py"])      

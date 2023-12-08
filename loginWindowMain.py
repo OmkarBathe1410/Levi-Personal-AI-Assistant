@@ -133,7 +133,7 @@ class loginWindow(QMainWindow):
     def connectToLeviMain(self):
         # Closing the current window and calling the main.py script:
         self.close()
-        call(["python", "main.py"])            
+        call(["python", "leviMain.py"])            
                 
 
 # Main code:

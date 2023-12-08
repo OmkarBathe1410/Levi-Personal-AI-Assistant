@@ -1,103 +1,158 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_finalAiGui(object):
-    def setupUi(self, finalAiGui):
-        finalAiGui.setObjectName("finalAiGui")
-        finalAiGui.resize(1280, 720)
-        finalAiGui.setStatusTip("")
-        finalAiGui.setStyleSheet("background-color: rgb(0, 0, 0);\n"
-"")
-        self.leviLogo = QtWidgets.QLabel(finalAiGui)
-        self.leviLogo.setGeometry(QtCore.QRect(320, -20, 611, 151))
-        self.leviLogo.setStyleSheet("border-image: url(F:/Ava - Personal AI Assistant/G.U.I Material/ExtraGui/LEVI_AI_logo-removebg-preview.png);\n"
-"background-color: transparent;")
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+
+
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(890, 576)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("F:/Ava - Personal AI Assistant/G.U.I Material/ExtraGui/LEVI_AI_logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
+        
+        
+        self.Levi = QtWidgets.QWidget(MainWindow)
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.Levi.setFont(font)
+        self.Levi.setStyleSheet("background-color: rgb(0, 0, 0);")
+        self.Levi.setObjectName("Levi")
+        
+        
+        self.leviLogo = QtWidgets.QLabel(self.Levi)
+        self.leviLogo.setGeometry(QtCore.QRect(293, -10, 310, 100))
+        self.leviLogo.setStyleSheet("background-color: transparent;")
         self.leviLogo.setText("")
+        self.leviLogo.setPixmap(QtGui.QPixmap("F:/Ava - Personal AI Assistant/G.U.I Material/ExtraGui/LEVI_AI_logo-removebg-preview.png"))
+        self.leviLogo.setScaledContents(True)
         self.leviLogo.setObjectName("leviLogo")
-        self.exitButton = QtWidgets.QPushButton(finalAiGui)
-        self.exitButton.setGeometry(QtCore.QRect(1080, 630, 191, 91))
-        self.exitButton.setStyleSheet("border-image: url(F:/Ava - Personal AI Assistant/G.U.I Material/Buttons/Exit_btn.png);\n"
-"background-color: transparent;")
-        self.exitButton.setText("")
-        self.exitButton.setObjectName("exitButton")
-        self.codingWindow = QtWidgets.QLabel(finalAiGui)
-        self.codingWindow.setGeometry(QtCore.QRect(0, 0, 311, 181))
-        self.codingWindow.setStyleSheet("border-color: rgb(255, 255, 255);\n"
-"image: url(F:/Ava - Personal AI Assistant/G.U.I Material/ExtraGui/Code_Template.gif);\n"
-"border-style:solid;\n"
-"border-width:0.5px 0.5px 0.5px 0.5px;\n"
-"")
-        self.codingWindow.setText("")
-        self.codingWindow.setObjectName("codingWindow")
-        self.terminalText = QtWidgets.QPlainTextEdit(finalAiGui)
-        self.terminalText.setGeometry(QtCore.QRect(0, 499, 1071, 181))
-        self.terminalText.setEnabled(True)
-        self.terminalText.setStyleSheet("border-color: rgb(255, 255, 255);\n"
-"border-style:solid;\n"
-"border-width:0.5px 0.5px 0.5px 0.5px;\n"
-"font: 10pt \"Arial Rounded MT Bold\";\n"
+        
+        
+        self.speakLbl = QtWidgets.QLabel(self.Levi)
+        self.speakLbl.setGeometry(QtCore.QRect(320, 100, 270, 200))
+        self.speakLbl.setStyleSheet("background-color: transparent;")
+        self.speakLbl.setText("")
+        self.speakLbl.setPixmap(QtGui.QPixmap("F:/Ava - Personal AI Assistant/G.U.I Material/ExtraGui/Speaking_Levi.gif"))
+        self.speakLbl.setScaledContents(True)
+        self.speakLbl.setObjectName("speakLbl")
+        
+        
+        self.listenLbl = QtWidgets.QLabel(self.Levi)
+        self.listenLbl.setGeometry(QtCore.QRect(320, 100, 270, 200))
+        self.listenLbl.setStyleSheet("background-color: transparent;")
+        self.listenLbl.setText("")
+        self.listenLbl.setPixmap(QtGui.QPixmap("F:/Ava - Personal AI Assistant/G.U.I Material/ExtraGui/Listening_Levi.gif"))
+        self.listenLbl.setScaledContents(True)
+        self.listenLbl.setObjectName("listenLbl")
+        
+        
+        self.loadingLbl = QtWidgets.QLabel(self.Levi)
+        self.loadingLbl.setGeometry(QtCore.QRect(320, 100, 270, 200))
+        self.loadingLbl.setStyleSheet("background-color: transparent;")
+        self.loadingLbl.setText("")
+        self.loadingLbl.setPixmap(QtGui.QPixmap("F:/Ava - Personal AI Assistant/G.U.I Material/ExtraGui/Loading_Levi.gif"))
+        self.loadingLbl.setScaledContents(True)
+        self.loadingLbl.setObjectName("loadingLbl")
+        
+        
+        self.sleepLbl = QtWidgets.QLabel(self.Levi)
+        self.sleepLbl.setGeometry(QtCore.QRect(320, 100, 270, 200))
+        self.sleepLbl.setStyleSheet("background-color: transparent;")
+        self.sleepLbl.setText("")
+        self.sleepLbl.setPixmap(QtGui.QPixmap("F:/Ava - Personal AI Assistant/G.U.I Material/ExtraGui/Sleeping_Levi.gif"))
+        self.sleepLbl.setScaledContents(True)
+        self.sleepLbl.setObjectName("sleepLbl")
+        
+        
+        self.terminalText = QtWidgets.QTextEdit(self.Levi)
+        self.terminalText.setGeometry(QtCore.QRect(10, 310, 870, 200))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.terminalText.setFont(font)
+        self.terminalText.setStyleSheet("background-color: transparent;\n"
+"border: 1px solid #fff;\n"
+"border-radius: 7px;\n"
 "color: rgb(0, 128, 0);\n"
-"padding-left: 2px;\n"
-"padding-top: 2px;")
-        self.terminalText.setPlainText("")
+"padding: 8px;")
+        self.terminalText.setText("")
         self.terminalText.setObjectName("terminalText")
-        self.inputText = QtWidgets.QPlainTextEdit(finalAiGui)
-        self.inputText.setGeometry(QtCore.QRect(0, 680, 951, 41))
-        self.inputText.setEnabled(True)
-        self.inputText.setStyleSheet("border-color: rgb(255, 255, 255);\n"
-"border-style:solid;\n"
-"border-width:2px 2px 2px 2px;\n"
-"font: 12pt \"Arial Rounded MT Bold\";\n"
+        
+        
+        self.inputText = QtWidgets.QLineEdit(self.Levi)
+        self.inputText.setGeometry(QtCore.QRect(10, 520, 740, 50))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.inputText.setFont(font)
+        self.inputText.setStyleSheet("background-color: transparent;\n"
+"border: 1px solid #fff;\n"
+"border-radius: 7px;\n"
 "color: rgb(0, 128, 0);\n"
-"padding-left: 5px;\n"
-"padding-top: 5px;")
-        self.inputText.setPlainText("")
+"padding: 8px;")
+        self.inputText.setMaxLength(50000)
+        self.inputText.setFrame(True)
+        self.inputText.setCursorMoveStyle(QtCore.Qt.VisualMoveStyle)
+        self.inputText.setClearButtonEnabled(True)
         self.inputText.setObjectName("inputText")
-        self.enterButton = QtWidgets.QPushButton(finalAiGui)
-        self.enterButton.setGeometry(QtCore.QRect(939, 673, 141, 51))
-        self.enterButton.setStyleSheet("border-image: url(F:/Ava - Personal AI Assistant/G.U.I Material/Buttons/Enter_btn.png);\nbackground-color: transparent;")
+        
+        
+        self.enterButton = QtWidgets.QPushButton(self.Levi)
+        self.enterButton.setGeometry(QtCore.QRect(755, 514, 130, 60))
+        self.enterButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.enterButton.setStyleSheet("background-color: transparent;\n"
+"border-image: url(F:/Ava - Personal AI Assistant/G.U.I Material/Buttons/Enter_btn.png);")
         self.enterButton.setText("")
         self.enterButton.setObjectName("enterButton")
-        self.loadingLbl = QtWidgets.QLabel(finalAiGui)
-        self.loadingLbl.setGeometry(QtCore.QRect(390, 110, 500, 375))
-        self.loadingLbl.setStyleSheet("border-image: url(F:/Ava - Personal AI Assistant/G.U.I Material/ExtraGui/Earth.gif);")
-        self.loadingLbl.setText("")
-        self.loadingLbl.setObjectName("loadingLbl")
-        self.listenLbl = QtWidgets.QLabel(finalAiGui)
-        self.listenLbl.setGeometry(QtCore.QRect(390, 110, 500, 375))
-        self.listenLbl.setStyleSheet("border-image: url(F:/Ava - Personal AI Assistant/G.U.I Material/VoiceReg/Siri.gif);")
-        self.listenLbl.setText("")
-        self.listenLbl.setObjectName("listenLbl")
-        self.speakLbl = QtWidgets.QLabel(finalAiGui)
-        self.speakLbl.setGeometry(QtCore.QRect(340, 130, 601, 351))
-        self.speakLbl.setStyleSheet("\n"
-"border-image: url(F:/Ava - Personal AI Assistant/G.U.I Material/ExtraGui/Jarvis_Gui (1).gif);")
-        self.speakLbl.setText("")
-        self.speakLbl.setObjectName("speakLbl")
-        self.loadingLbl.raise_()
+        
+        
+        self.exitButton = QtWidgets.QPushButton(self.Levi)
+        self.exitButton.setGeometry(QtCore.QRect(754, 250, 130, 60))
+        self.exitButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.exitButton.setStyleSheet("background-color: transparent;\n"
+"border-image: url(F:/Ava - Personal AI Assistant/G.U.I Material/Buttons/Exit_btn.png);")
+        self.exitButton.setText("")
+        self.exitButton.setObjectName("exitButton")
+        
+
+        self.leviLogo.raise_()
         self.listenLbl.raise_()
-        self.exitButton.raise_()
-        self.codingWindow.raise_()
+        self.loadingLbl.raise_()
+        self.speakLbl.raise_()
+        self.sleepLbl.raise_()
         self.terminalText.raise_()
         self.inputText.raise_()
         self.enterButton.raise_()
-        self.speakLbl.raise_()
-        self.leviLogo.raise_()
+        self.exitButton.raise_()
 
-        self.retranslateUi(finalAiGui)
-        QtCore.QMetaObject.connectSlotsByName(finalAiGui)
+        
+        MainWindow.setCentralWidget(self.Levi)
 
-    def retranslateUi(self, finalAiGui):
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+
+    def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        finalAiGui.setWindowTitle(_translate("finalAiGui", "finalAiGui"))
-        self.terminalText.setPlaceholderText(_translate("finalAiGui", "Terminal Output Here"))
-        self.inputText.setPlaceholderText(_translate("finalAiGui", "Enter Your Command"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Levi - A Peresonal AI Assistant"))
+        self.terminalText.setPlaceholderText(_translate("MainWindow", "Terminal output here.."))
+        self.inputText.setPlaceholderText(_translate("MainWindow", "Enter input here.."))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    finalAiGui = QtWidgets.QWidget()
-    ui = Ui_finalAiGui()
-    ui.setupUi(finalAiGui)
-    finalAiGui.show()
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
     sys.exit(app.exec_())
